@@ -1,0 +1,14 @@
+{
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build/.clangd"
+    ],
+    "cmake.buildDirectory": "${workspaceFolder}/build/${buildKit}_${buildType}",
+    "cmake.configureArgs": [
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${buildKit}_${buildType}/.conan/conan_toolchain.cmake"
+    ],
+    "cmake.copyCompileCommands": "${workspaceFolder}/build/.clangd/compile_commands.json",
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ]
+}

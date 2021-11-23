@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "conan initialize",
+            "type": "shell",
+            "command": "conanrunsh=${command:cmake.buildDirectory}/.conan/conanrun.sh; conanrunenv=${command:cmake.buildDirectory}/.conan/conanrun.env; if [ -f $conanrunsh ]; then grep \"^export \" $(cat $conanrunsh | cut -d \"\\\"\" -f2) | cut -c 8- > $conanrunenv; else echo -n \"\" > $conanrunenv; fi",
+            "windows": {
+                "command": "$conanrunbat = '${command:cmake.buildDirectory}/.conan/conanrun.bat'; $conanrunenv = '${command:cmake.buildDirectory}/.conan/conanrun.env'; If (Test-Path $conanrunbat -PathType Leaf) {$fileread = $(Select-String -Path $conanrunbat -Pattern '^call ').Line; Get-Content -Path $($fileread.Substring(6,$fileread.Length-7)) | Select-String -Pattern '^set ' | foreach-object {$_ -replace '^set ',''} | out-file $conanrunenv} Else {New-Item $conanrunenv -ItemType File -Value '' -Force | Out-Null}"
+            },
+            "group": "build",
+            "dependsOn": "conan install",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "conan install",
+            "type": "shell",
+            "command": "conan",
+            "args": [
+                "install", "\"${workspaceFolder}\"",
+                "-b", "missing",
+                "-if", "\"${command:cmake.buildDirectory}/.conan\"",
+                "-g", "CMakeToolchain",
+                // build context
+                "-pr:b", "default",
+                "-s:b", "build_type=Release",
+                "-o:b", "\"*:shared=False\"",
+                "-c:b", "tools.cmake.cmaketoolchain:generator=Ninja",
+                "-g", "VirtualBuildEnv",
+                // Host context
+                "-pr:h", "\"${command:cmake.buildKit}\"",
+                "-s:h", "\"build_type=${command:cmake.buildType}\"",
+                "-c:h", "tools.cmake.cmaketoolchain:generator=Ninja",
+                "-g", "cmake_find_package",
+                "-g", "cmake_find_package_multi",
+                "-g", "VirtualRunEnv",
+                "-g", "markdown"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ]
+}
