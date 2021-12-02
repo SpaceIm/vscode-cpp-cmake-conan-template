@@ -35,6 +35,8 @@ Basically you add your dependencies in `conanfile.txt` (or `conanfile.py`), call
 2. Add your dependencies under `[requires]` section of `conanfile.txt`, and your build dependencies under `[build_requires]`.
 3. Launch `conan initialize` task in VSCode (through Command Palette or an extension like [Task Explorer](https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer)).
 4. Select the Kit again.
+5. Run CMake reconfiguration.
+6. Restart clangd server (in Command Palette).
 
 ### Configure/Build & Debug
 
