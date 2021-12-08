@@ -8,6 +8,7 @@
         "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${buildKit}_${buildType}/.conan/conan_toolchain.cmake"
     ],
     "cmake.copyCompileCommands": "${workspaceFolder}/build/.clangd/compile_commands.json",
+    "cmake.exportCompileCommandsFile": true,
     "cmake.preferredGenerators": [
         "Ninja"
     ]
