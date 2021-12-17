@@ -36,6 +36,7 @@
                 "-c:h", "tools.cmake.cmaketoolchain:generator=Ninja",
                 "-g", "cmake_find_package",
                 "-g", "cmake_find_package_multi",
+                "-g", "pkg_config",
                 "-g", "VirtualRunEnv",
                 "-g", "markdown"
             ],
