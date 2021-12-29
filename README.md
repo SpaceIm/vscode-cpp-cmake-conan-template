@@ -38,9 +38,17 @@ Basically you add your dependencies in `conanfile.txt` (or `conanfile.py`), call
 5. Run CMake reconfiguration.
 6. Restart clangd server (in Command Palette).
 
-### Configure/Build & Debug
+### Configure/Build
 
 You can use CMake Tools extension as usual.
+
+### Debug
+
+- In Debugger panel, select `C++ MSVC Debug` if compiler is MSVC, `C++ GNU Debug` otherwise.
+
+- Press F5.
+
+:warning: *DO NOT run the debugger through bottom task bar (`CMake: Launch the debugger for the selected target`).*
 
 ### Run without Debugger (`CMake: Launch`)
 
