@@ -27,7 +27,7 @@ Basically you add your dependencies in `conanfile.txt` (or `conanfile.py`), call
 
 1. Initialize your Kits for `CMake Tools` extension if not already done.
 2. Rename these Kits names or your conan profiles so that they can match. There should exist one conan profile per Kit. Indeed, this setup relies on Kit names to know which conan profile should be called.
-3. Add `"environmentSetupScript": "${workspaceFolder}/build/${buildKit}_${buildType}/.conan/conanbuild[.sh|.bat]"` property in your Kits (`.bat` for Windows, `.sh` otherwise).
+3. Add `"environmentSetupScript": "${workspaceFolder}/build/${buildKit}/${buildType}/.conan/conanbuild[.sh|.bat]"` property in your Kits (`.bat` for Windows, `.sh` otherwise).
 
 ### Project Initialization
 
@@ -88,7 +88,7 @@ Yes, you just need to ensure that `ccache` is installed on your system obviously
 
 ```json
     "cmake.configureArgs": [
-        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${buildKit}_${buildType}/.conan/conan_toolchain.cmake",
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${buildKit}/${buildType}/.conan/conan_toolchain.cmake",
         // here we wrap compiler calls with ccache
         "-DCMAKE_C_COMPILER_LAUNCHER=ccache",
         "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"

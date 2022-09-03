@@ -3,9 +3,9 @@
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/build/.clangd"
     ],
-    "cmake.buildDirectory": "${workspaceFolder}/build/${buildKit}_${buildType}",
+    "cmake.buildDirectory": "${workspaceFolder}/build/${buildKit}/${buildType}",
     "cmake.configureArgs": [
-        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${buildKit}_${buildType}/.conan/conan_toolchain.cmake"
+        "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/build/${buildKit}/${buildType}/.conan/conan_toolchain.cmake"
     ],
     "cmake.copyCompileCommands": "${workspaceFolder}/build/.clangd/compile_commands.json",
     "cmake.exportCompileCommandsFile": true,
