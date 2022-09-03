@@ -2,4 +2,8 @@
 
 [options]
 
-[build_requires]
+[tool_requires]
+
+[env]
+
+[conf]
