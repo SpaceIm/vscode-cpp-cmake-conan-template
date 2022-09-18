@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "conanrunsh=${command:cmake.buildDirectory}/.conan/conanrun.sh; conanrunenv=${command:cmake.buildDirectory}/.conan/conanrun.env; if [ -f $conanrunsh ]; then grep \"^export \" $(cat $conanrunsh | cut -d \"\\\"\" -f2) | cut -c 8- > $conanrunenv; else echo -n \"\" > $conanrunenv; fi",
             "windows": {
-                "command": "$conanrunbat = '${command:cmake.buildDirectory}/.conan/conanrun.bat'; $conanrunenv = '${command:cmake.buildDirectory}/.conan/conanrun.env'; If (Test-Path $conanrunbat -PathType Leaf) {$fileread = $(Select-String -Path $conanrunbat -Pattern '^call ').Line; Get-Content -Path $($fileread.Substring(6,$fileread.Length-7)) | Select-String -Pattern '^set ' | foreach-object {$_ -replace '^set ',''} | out-file $conanrunenv} Else {New-Item $conanrunenv -ItemType File -Value '' -Force | Out-Null}"
+                "command": "$conanrunbat = '${command:cmake.buildDirectory}/.conan/conanrun.bat'; $conanrunenv = '${command:cmake.buildDirectory}/.conan/conanrun.env'; If (Test-Path $conanrunbat -PathType Leaf) {$fileread = $(Select-String -Path $conanrunbat -Pattern '^call ').Line; Get-Content -Path $($fileread.Substring(6,$fileread.Length-7)) | Select-String -Pattern '^set ' | foreach-object {$_ -replace '^set ','' -replace '(^\\\"|\\\"$)',''} | out-file $conanrunenv} Else {New-Item $conanrunenv -ItemType File -Value '' -Force | Out-Null}"
             },
             "group": "build",
             "dependsOn": "conan install",
