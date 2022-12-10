@@ -1,9 +1,5 @@
 [requires]
-
 [options]
-
 [tool_requires]
-
-[env]
-
 [conf]
+[buildenv]
