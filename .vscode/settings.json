@@ -11,5 +11,6 @@
     "cmake.exportCompileCommandsFile": true,
     "cmake.preferredGenerators": [
         "Ninja"
-    ]
+    ],
+    "cmake.useCMakePresets": "never"
 }
