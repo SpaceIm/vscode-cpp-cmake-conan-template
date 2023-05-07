@@ -22,7 +22,7 @@
             "args": [
                 "install", "\"${workspaceFolder}\"",
                 "-b", "missing",
-                "-if", "\"${command:cmake.buildDirectory}/.conan\"",
+                "-of", "\"${command:cmake.buildDirectory}/.conan\"",
                 "-g", "CMakeToolchain",
                 // build context
                 "-pr:b", "default",
@@ -38,8 +38,7 @@
                 "-c:h", "tools.cmake.cmaketoolchain:generator=Ninja",
                 "-g", "CMakeDeps",
                 "-g", "PkgConfigDeps",
-                "-g", "VirtualRunEnv",
-                "-g", "markdown"
+                "-g", "VirtualRunEnv"
             ],
             "group": "build",
             "presentation": {

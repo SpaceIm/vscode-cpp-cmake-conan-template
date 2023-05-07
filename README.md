@@ -16,7 +16,7 @@ Basically you add your dependencies in `conanfile.txt` (or `conanfile.py`), call
 ## Prerequisites
 
 - A working C/C++ compiler/toolchain (e.g GCC, LLVM, Visual C++)
-- [conan](https://conan.io) 1.x client
+- [conan](https://conan.io) 2.x client
 - [CMake](https://cmake.org) >= 3.15
 - [Ninja](https://ninja-build.org)
 - [VSCode](https://code.visualstudio.com) with these extensions:
